@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
           ),
           SizedBox(height: 20.0,),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.fromLTRB(25.0, 10.0,25.0,10.0),
             child: TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -31,14 +31,17 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20.0,),
-          TextButton(
-              onPressed: () => {}, 
-              style: TextButton.styleFrom(
-                padding: EdgeInsets.all(10.0),
-                minimumSize: Size(200, 50),
-                backgroundColor: Colors.blue[800]
-              ),
-              child: Text('Next', style: TextStyle(color: Colors.white),)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25.0, 10.0,25.0,10.0),
+            child: TextButton(
+                onPressed: () => {}, 
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.all(10.0),
+                  minimumSize: Size(double.infinity, 50),
+                  backgroundColor: Colors.blue[800]
+                ),
+                child: Text('Next', style: TextStyle(color: Colors.white),)
+            ),
           ),
           SizedBox(height: 50.0,),
           Row(

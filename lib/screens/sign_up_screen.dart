@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ido_app/screens/otp_screen.dart';
 
 
 class SignUpScreen extends StatefulWidget {
@@ -96,7 +97,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Container(
                 margin: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
                 child: TextButton(
-                onPressed: () => {}, 
+                onPressed: () => {
+                   Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => const OTPScreen())),
+                }, 
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.all(10.0),
                   backgroundColor: Colors.blue[800],

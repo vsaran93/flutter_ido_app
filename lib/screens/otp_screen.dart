@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ido_app/main_navigator.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OTPScreen extends StatelessWidget {
@@ -28,7 +29,9 @@ class OTPScreen extends StatelessWidget {
             ),
             SizedBox(height: 50,),
             TextButton(
-              onPressed: () => {}, 
+              onPressed: () => {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MainNavigator()))
+              }, 
               child: Text("Verify", style: TextStyle(color: Colors.white),), 
               style: TextButton.styleFrom(
                 padding: EdgeInsets.all(10.0),

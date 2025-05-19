@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'dart:ffi';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_ido_app/screens/essential_category_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({
-    super.key
-  });
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,11 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: Column(children: [
           SizedBox(height: 70.0,),
-          Text("Essential Services", style: TextStyle(fontSize: 18.0),),
+          Container(
+            alignment: Alignment.centerLeft,
+            padding: EdgeInsets.fromLTRB(25.0,10.0,25.0,10.0),
+            child: Text("Welcome, Mark", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
+          ),
           SizedBox(height: 20.0),
           Padding(
             padding: const EdgeInsets.fromLTRB(25.0, 10.0,25.0,10.0),
@@ -28,151 +32,107 @@ class HomeScreen extends StatelessWidget {
           Container(
             alignment: Alignment.centerLeft,
             padding: EdgeInsets.fromLTRB(25.0,10.0,25.0,10.0),
-            child: Text("Select a service", style: TextStyle(fontSize: 16.0),),
+            child: Text("Browse by service category", style: TextStyle(fontSize: 16.0),),
           ),
           Expanded(
           child: GridView.count(
-          childAspectRatio: 2.3,
-          padding: EdgeInsets.fromLTRB(25.0,0,25.0,0),
-          crossAxisCount: 1,
+          childAspectRatio: 1,
+          crossAxisCount: 2,
           children: [
             Card(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    // First Column: Image (25% Width)
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.25,
-                      child: AspectRatio(
-                        aspectRatio: 3/4,
-                        child: Image(image: AssetImage('assets/images/housekeeping.jpeg',), fit: BoxFit.cover)
+              margin: EdgeInsets.all(10.0),
+              child: InkWell(
+                onTap: () => { Navigator.push(context, MaterialPageRoute(builder: (context) =>  const EssentialCategoryScreen(),)) },
+                child: Container(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 18.0/13.0,
+                        child: Image(image: AssetImage('assets/images/plumbing.jpg',), fit: BoxFit.fill),
                       ),
-                    ),
-                    // Second Column: Description (75% Width)
-                    SizedBox(width: 8), // Space between image and text
-                    // Second Column: Description (75% width)
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Housekeeping',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 4),
-                          Text(
-                            'Maintain a clean and organized home',
-                            style: TextStyle(fontSize: 14),
-                            softWrap: true, // Ensures text wraps properly
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Essential', textAlign: TextAlign.center,),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
               ),
+              )
             ),
             Card(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    // First Column: Image (25% Width)
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.25,
-                      child: AspectRatio(
-                        aspectRatio: 3/4,
-                        child: Image(image: AssetImage('assets/images/gardening.jpg',), fit: BoxFit.cover)
+              margin: EdgeInsets.all(10.0),
+              child: Container(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 18.0/13.0,
+                        child: Image(image: AssetImage('assets/images/gardening.jpg',), fit: BoxFit.fill),
                       ),
-                    ),
-                    // Second Column: Description (75% Width)
-                    SizedBox(width: 8), // Space between image and text
-                    // Second Column: Description (75% width)
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Gardening',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 4),
-                          Text(
-                            'Clutivating and maintaining a garden',
-                            style: TextStyle(fontSize: 14),
-                            softWrap: true, // Ensures text wraps properly
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Personal', textAlign: TextAlign.center,),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+              )
             ),
             Card(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    // First Column: Image (25% Width)
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.25,
-                      child: AspectRatio(
-                        aspectRatio: 3/4,
-                        child: Image(image: AssetImage('assets/images/plumbing.jpg',), fit: BoxFit.cover)
+              margin: EdgeInsets.all(10.0),
+              child: Container(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 18.0/13.0,
+                        child: Image(image: AssetImage('assets/images/housekeeping.jpeg',), fit: BoxFit.fill),
                       ),
-                    ),
-                    // Second Column: Description (75% Width)
-                    SizedBox(width: 8), // Space between image and text
-                    // Second Column: Description (75% width)
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Plumbing',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 4),
-                          Text(
-                            'Piping and fixtures for water supply',
-                            style: TextStyle(fontSize: 14),
-                            softWrap: true, // Ensures text wraps properly
-                          ),
-                        ],
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Occasion', textAlign: TextAlign.center,),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+              )
+            ),
+            Card(
+              margin: EdgeInsets.all(10.0),
+              child: Container(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 18.0/13.0,
+                        child: Image(image: AssetImage('assets/images/business.jpg',), fit: BoxFit.fill),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.list),
-                  Text('Service 4'),
-                ],
-              ),
-            ),
-            Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.add),
-                  Text('Service 5'),
-                ],
-              ),
-            ),
-            Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.list),
-                  Text('Service 6'),
-                ],
-              ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Business', textAlign: TextAlign.center,),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+              )
             ),
           ],
         ),)
@@ -181,5 +141,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-

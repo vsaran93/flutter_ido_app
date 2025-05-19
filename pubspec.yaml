@@ -67,6 +67,7 @@ flutter:
      - assets/images/housekeeping.jpeg
      - assets/images/plumbing.jpg
      - assets/images/gardening.jpg
+     - assets/images/business.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

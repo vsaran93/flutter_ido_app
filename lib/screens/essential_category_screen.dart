@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ido_app/screens/service_provider_list_screen.dart';
 
 
 class EssentialCategoryScreen extends StatelessWidget {
@@ -9,9 +10,9 @@ class EssentialCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
         child: Column(children: [
-          SizedBox(height: 70.0,),
           Text("Essential Services", style: TextStyle(fontSize: 18.0),),
           SizedBox(height: 20.0),
           Padding(
@@ -39,7 +40,9 @@ class EssentialCategoryScreen extends StatelessWidget {
             Card(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Row(
+                child: InkWell(
+                  onTap: () => { Navigator.push(context, MaterialPageRoute(builder: (context) =>  const ServiceProviderListScreen(),)) },
+                  child: Row(
                   children: [
                     // First Column: Image (25% Width)
                     SizedBox(
@@ -71,6 +74,7 @@ class EssentialCategoryScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                )  
               ),
             ),
             Card(

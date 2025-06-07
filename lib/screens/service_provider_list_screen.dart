@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ido_app/providers/service_providers_list_provider.dart';
+import 'package:provider/provider.dart';
 
 class ServiceProviderListScreen extends StatelessWidget {
   const ServiceProviderListScreen({
@@ -10,8 +12,8 @@ class ServiceProviderListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Column(children: [
-          Text("Services", style: TextStyle(fontSize: 18.0),),
+        child: Consumer<ServiceProvidersListProvider>(builder: (context, state, child) => Column(children: [
+          Text(state.headerTitle, style: TextStyle(fontSize: 18.0),),
           SizedBox(height: 20.0),
           Padding(
             padding: const EdgeInsets.fromLTRB(25.0, 10.0,25.0,10.0),
@@ -174,6 +176,7 @@ class ServiceProviderListScreen extends StatelessWidget {
           ],
         ),)
         ],),
+      ),
       )
     );
   } 

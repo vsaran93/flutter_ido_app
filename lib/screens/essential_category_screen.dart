@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_ido_app/providers/service_providers_list_provider.dart';
 import 'package:flutter_ido_app/screens/service_provider_list_screen.dart';
+import 'package:provider/provider.dart';
 
 
 class EssentialCategoryScreen extends StatelessWidget {
@@ -12,7 +16,7 @@ class EssentialCategoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Column(children: [
+        child: Consumer<ServiceProvidersListProvider>(builder: (context, state, child) => Column(children: [
           Text("Essential Services", style: TextStyle(fontSize: 18.0),),
           SizedBox(height: 20.0),
           Padding(
@@ -41,7 +45,11 @@ class EssentialCategoryScreen extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: InkWell(
-                  onTap: () => { Navigator.push(context, MaterialPageRoute(builder: (context) =>  const ServiceProviderListScreen(),)) },
+                  onTap: () { 
+                    final state = context.read<ServiceProvidersListProvider>();
+                    state.setTitle('house keeping');
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  const ServiceProviderListScreen(),)); 
+                  },
                   child: Row(
                   children: [
                     // First Column: Image (25% Width)
@@ -181,6 +189,11 @@ class EssentialCategoryScreen extends StatelessWidget {
           ],
         ),)
         ],)
+        
+        
+        )
+        
+        
       )
     );
   }

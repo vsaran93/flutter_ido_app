@@ -31,9 +31,50 @@ class _MainNavigator extends State<MainNavigator> {
   final tabs = [ HomeScreen(), ActivitiesScreen(), NotificationScreen(), AccountScreen() ];
   int currentPageIndex = 0;
 
+  Map<int, GlobalKey<NavigatorState>>navigatorKeys = {
+    0: GlobalKey(),
+    1: GlobalKey(),
+    2: GlobalKey(),
+    3: GlobalKey(),
+  };
+
+
+  Widget _buildTabNavigator(int index, Widget child) {
+    return Navigator(
+      key: navigatorKeys[index],
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (_) => child,
+          settings:  settings
+        );
+      },
+    );
+  }
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: SafeArea(
+        child: PopScope(
+          onPopInvoked: (didPop) {
+            if(!didPop) {
+              final context1 = navigatorKeys[currentPageIndex]?.currentContext;
+              if (context1 != null) {
+                Navigator.maybePop(context1);
+              }  
+            }
+          },
+          child: IndexedStack(
+            index: currentPageIndex,
+            children: <Widget>[
+              _buildTabNavigator(0, const HomeScreen()),
+              _buildTabNavigator(1, const ActivitiesScreen()),
+              _buildTabNavigator(2, const NotificationScreen()),
+              _buildTabNavigator(3, const AccountScreen()),
+            ],
+          )
+        )
+      ),
       bottomNavigationBar: Container(
         child: BottomNavigationBar(
           backgroundColor: Colors.blue.shade800,
@@ -67,7 +108,6 @@ class _MainNavigator extends State<MainNavigator> {
           ],
         ),
       ),
-      body: tabs[currentPageIndex],
     );
   }
 }

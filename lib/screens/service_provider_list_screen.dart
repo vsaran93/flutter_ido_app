@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ido_app/providers/service_providers_list_provider.dart';
+import 'package:flutter_ido_app/screens/service_provider_profile_screen.dart';
 import 'package:provider/provider.dart';
 
 class ServiceProviderListScreen extends StatelessWidget {
@@ -41,6 +42,7 @@ class ServiceProviderListScreen extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: InkWell(
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ServiceProviderProfileScreen())),
                   child: Row(
                   children: [
                     // First Column: Image (25% Width)

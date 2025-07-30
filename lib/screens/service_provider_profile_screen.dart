@@ -75,7 +75,74 @@ class _TabbedScreen extends State<ServiceProviderProfileScreen> with SingleTicke
             child: TabBarView(
               controller: _tabController,
               children: [
-              Text("Tab1"),
+              Container(
+                margin: EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 2,
+                      blurRadius: 8,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Age: 30", style: TextStyle(fontSize: 16)),
+                    Text("From: Colombo", style: TextStyle(fontSize: 16)),
+                    Text("Working Hours: 08:00 - 22:00", style: TextStyle(fontSize: 16)),
+                    
+                    SizedBox(height: 12),
+                    Divider(),
+                    
+                    SizedBox(height: 8),
+                    Text("Contact Info", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                    SizedBox(height: 6),
+                    Row(
+                      children: [
+                        Icon(Icons.phone, size: 20, color: Colors.grey[700]),
+                        SizedBox(width: 6),
+                        Text("+94778345678"),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.email, size: 20, color: Colors.grey[700]),
+                        SizedBox(width: 6),
+                        Text("Abc@work.com"),
+                      ],
+                    ),
+                    
+                    SizedBox(height: 12),
+                    Divider(),
+
+                    SizedBox(height: 8),
+                    Text("Service Provided", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                    SizedBox(height: 8),
+                    Wrap(
+                      spacing: 8.0,
+                      runSpacing: 4.0,
+                      children: [
+                        Chip(
+                          label: Text("Cleaning"),
+                          backgroundColor: Colors.blue[50],
+                          labelStyle: TextStyle(color: Colors.blue[800]),
+                        ),
+                        Chip(
+                          label: Text("Gardening"),
+                          backgroundColor: Colors.green[50],
+                          labelStyle: TextStyle(color: Colors.green[800]),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
               Text("Tab2"),
               Text("Tab3"),
               Text("Tab4")
